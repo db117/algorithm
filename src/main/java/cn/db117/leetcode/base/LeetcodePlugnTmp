@@ -18,7 +18,7 @@
 
 ${question.content}
 
-package com.db117.example.leetcode.leetcode.editor.cn;
+package cn.db117.leetcode.leetcode.editor.cn;
 
  /**
  * ${question.frontendQuestionId}.${question.title}.${question.titleSlug}
