@@ -72,6 +72,37 @@ public class Solution_393 {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean validUtf8(int[] data) {
+            int n = 0;/* 后面还有几个字符 */
+            for (int num : data) {
+                if (n > 0) {
+                    if (num >> 6 != 0b10) {
+                        // 剩余字符必须10开头
+                        return false;
+                    }
+                    n--;
+                } else if (num >> 7 == 0) {
+                    n = 0;
+                } else if (num >> 5 == 0b110) {
+                    n = 1;
+                } else if (num >> 4 == 0b1110) {
+                    n = 2;
+                } else if (num >> 3 == 0b11110) {
+                    n = 3;
+                } else {
+                    // utf-8最多4个字符
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+    }
+
+    //leetcode submit region end(Prohibit modification and deletion)
+    class Solution1 {
+        public boolean validUtf8(int[] data) {
 
             int next = 0;
             for (int i : data) {
@@ -117,6 +148,4 @@ public class Solution_393 {
             return ans;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
-
 }
