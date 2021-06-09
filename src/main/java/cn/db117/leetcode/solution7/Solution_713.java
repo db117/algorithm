@@ -24,13 +24,15 @@
 
 package cn.db117.leetcode.solution7;
 
+import cn.db117.leetcode.base.Optimized;
+
 /**
  * 713.乘积小于K的子数组.subarray-product-less-than-k
  *
  * @author db117
  * @since 2021-06-08 15:35:01
  **/
-
+@Optimized
 public class Solution_713 {
     public static void main(String[] args) {
         Solution solution = new Solution_713().new Solution();
