@@ -56,7 +56,7 @@
 // 👍 9 👎 0
 
 
-package cn.db117.leetcode.util;
+package cn.db117.leetcode.solution20;
 
 import java.util.Arrays;
 
