@@ -2,6 +2,7 @@ package cn.db117.leetcode.util;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author db117
@@ -58,6 +59,29 @@ public class TreeNodeUtil {
             }
         }
         return root;
+    }
+
+
+    /**
+     * 打印
+     *
+     * @param root 二叉树
+     */
+    public static void print(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode poll = queue.poll();
+                System.out.println(poll);
+                if (poll != null) {
+                    queue.offer(poll.left);
+                    queue.offer(poll.right);
+                }
+            }
+        }
     }
 
     /**
