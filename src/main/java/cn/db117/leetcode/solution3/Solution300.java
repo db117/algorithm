@@ -52,4 +52,47 @@ public class Solution300 {
         }
         return max;
     }
+
+    class Solution {
+        // 二分 贪心 O(n*logn)
+        public int lengthOfLIS(int[] nums) {
+            int ans = 0;
+            // 最长上升子序列（Longest  Increasing Subsequence）
+            int[] lis = new int[nums.length];
+            int index = 0;
+            for (int num : nums) {
+                if (index == 0) {
+                    // 初始化子序列
+                    lis[index++] = num;
+                    continue;
+                }
+
+                if (num > lis[index - 1]) {
+                    // 大于直接添加到尾部
+                    lis[index++] = num;
+                    continue;
+                }
+
+
+                // 二分找第一个大于当前值的索引
+                int left = 0, right = index - 1;
+                while (left < right) {
+                    // 找左边中位数
+                    int mid = (left + right) / 2;
+                    if (lis[mid] < num) {
+                        // 继续找右边的
+                        left = mid + 1;
+                    } else {
+                        // 可能是目标
+                        right = mid;
+                    }
+                }
+
+                // 替换掉
+                lis[right] = num;
+            }
+
+            return index;
+        }
+    }
 }
