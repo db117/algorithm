@@ -41,7 +41,7 @@
 // Related Topics 贪心 动态规划 👍 13 👎 0
 
 
-package cn.db117.leetcode.solution2;
+package cn.db117.leetcode.solution22;
 
 /**
  * 2216.美化数组的最少删除数.minimum-deletions-to-make-array-beautiful
