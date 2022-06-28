@@ -51,7 +51,7 @@
 // 👍 3 👎 0
 
 
-package cn.db117.leetcode.Solution50;
+package cn.db117.leetcode.solution22;
 
 /**
  * 2210.统计数组中峰和谷的数量.count-hills-and-valleys-in-an-array

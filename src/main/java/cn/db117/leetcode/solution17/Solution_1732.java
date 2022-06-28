@@ -34,7 +34,7 @@
 // 👍 1 👎 0
 
 
-package cn.db117.leetcode.Solution50;
+package cn.db117.leetcode.solution17;
 
 /**
  * Solution.5645.找到最高海拔
@@ -42,9 +42,9 @@ package cn.db117.leetcode.Solution50;
  * @author db117
  * @date 2020-10-14 17:47:30
  **/
-public class Solution5645 {
+public class Solution_1732 {
     public static void main(String[] args) {
-        Solution solution = new Solution5645().new Solution();
+        Solution solution = new Solution_1732().new Solution();
         System.out.println(solution.largestAltitude(new int[]{
                 -5, 1, 5, 0, -7
         }));

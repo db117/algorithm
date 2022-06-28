@@ -1,4 +1,4 @@
-package cn.db117.leetcode.Solution50;
+package cn.db117.leetcode.solution13;
 
 import java.util.Arrays;
 
@@ -48,9 +48,9 @@ import java.util.Arrays;
  * @author db117
  * @date 2020/1/6/006 10:29
  */
-public class Solution5304 {
+public class Solution_1310 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Solution5304().xorQueries(new int[]{
+        System.out.println(Arrays.toString(new Solution_1310().xorQueries(new int[]{
                         1, 3, 4, 8
                 },
                 new int[][]{

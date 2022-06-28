@@ -1,4 +1,4 @@
-package cn.db117.leetcode.Solution50;
+package cn.db117.leetcode.solution13;
 
 /**
  * 5303. 解码字母到整数映射
@@ -44,9 +44,9 @@ package cn.db117.leetcode.Solution50;
  * @author db117
  * @date 2020/1/5/005 17:55
  */
-public class Solution5303 {
+public class Solution_1309 {
     public static void main(String[] args) {
-        System.out.println(new Solution5303().freqAlphabets(
+        System.out.println(new Solution_1309().freqAlphabets(
                 "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#"
         ));
     }

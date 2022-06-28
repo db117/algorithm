@@ -32,7 +32,7 @@
 // 👍 2 👎 0
 
 
-package cn.db117.leetcode.Solution50;
+package cn.db117.leetcode.solution18;
 
 /**
  * 5738.K 进制表示下的各位数字总和.sum-of-digits-in-base-k
@@ -41,9 +41,9 @@ package cn.db117.leetcode.Solution50;
  * @since 2021-04-25 14:46:56
  **/
 
-public class Solution_5738 {
+public class Solution_1837 {
     public static void main(String[] args) {
-        Solution solution = new Solution_5738().new Solution();
+        Solution solution = new Solution_1837().new Solution();
         System.out.println(solution.sumBase(34, 6));
         System.out.println(solution.sumBase(10, 10));
         System.out.println(solution.sumBase(1, 2));

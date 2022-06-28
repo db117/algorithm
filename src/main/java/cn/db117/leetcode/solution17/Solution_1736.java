@@ -40,7 +40,7 @@
 // 👍 3 👎 0
 
 
-package cn.db117.leetcode.Solution50;
+package cn.db117.leetcode.solution17;
 
 /**
  * Solution.5661.替换隐藏数字得到的最晚时间
@@ -48,9 +48,9 @@ package cn.db117.leetcode.Solution50;
  * @author db117
  * @date 2020-10-14 17:47:30
  **/
-public class Solution5661 {
+public class Solution_1736 {
     public static void main(String[] args) {
-        Solution solution = new Solution5661().new Solution();
+        Solution solution = new Solution_1736().new Solution();
         System.out.println(solution.maximumTime("??:??"));
     }
 
