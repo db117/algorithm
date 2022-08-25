@@ -1,4 +1,4 @@
-package cn.db117.leetcode.base;
+package cn.db117.template;
 
 /**
  * 二分搜索
