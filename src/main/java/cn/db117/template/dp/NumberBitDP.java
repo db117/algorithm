@@ -1,6 +1,7 @@
 package cn.db117.template.dp;
 
 import cn.db117.leetcode.solution10.Solution_1012;
+import cn.db117.leetcode.solution10.Solution_1067;
 import cn.db117.leetcode.solution2.Solution_233;
 import cn.db117.leetcode.solution23.Solution_2376;
 import cn.db117.leetcode.solution6.Solution_600;
@@ -16,6 +17,7 @@ import java.util.Arrays;
  * @see Solution_600
  * @see Solution_902
  * @see Solution_1012
+ * @see Solution_1067
  * @see Solution_2376
  * @since 2022/8/25 16:55
  **/
