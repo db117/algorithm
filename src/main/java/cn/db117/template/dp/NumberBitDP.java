@@ -6,8 +6,9 @@ import java.util.Arrays;
  * 数位 DP
  *
  * @author db117
- * @see cn.db117.leetcode.solution23.Solution_2376
  * @see cn.db117.leetcode.solution2.Solution_233
+ * @see cn.db117.leetcode.solution6.Solution_600
+ * @see cn.db117.leetcode.solution23.Solution_2376
  * @since 2022/8/25 16:55
  **/
 public class NumberBitDP {
