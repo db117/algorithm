@@ -1,14 +1,20 @@
 package cn.db117.template.dp;
 
+import cn.db117.leetcode.solution2.Solution_233;
+import cn.db117.leetcode.solution23.Solution_2376;
+import cn.db117.leetcode.solution6.Solution_600;
+import cn.db117.leetcode.solution9.Solution_902;
+
 import java.util.Arrays;
 
 /**
  * 数位 DP
  *
  * @author db117
- * @see cn.db117.leetcode.solution2.Solution_233
- * @see cn.db117.leetcode.solution6.Solution_600
- * @see cn.db117.leetcode.solution23.Solution_2376
+ * @see Solution_233
+ * @see Solution_600
+ * @see Solution_902
+ * @see Solution_2376
  * @since 2022/8/25 16:55
  **/
 public class NumberBitDP {
@@ -60,9 +66,11 @@ public class NumberBitDP {
                 ans = f(i + 1, mask, false, false);
             }
 
-            for (int k = hasNum ? 0 : 1/*前面没有选数字,不能选 0*/,
-                 end = isLimit ? chars[i] - '0' : 9/*有限制最多只能选择到 s[i]*/;
-                 k <= end; k++) {
+            // 有限制最多只能选择到 s[i]
+            int end = isLimit ? chars[i] - '0' : 9;
+            // 前面没有选数字,不能选 0
+            int start = hasNum ? 0 : 1;
+            for (int k = start; k <= end; k++) {
                 if ((mask >> k & 1) == 0) {
                     ans += f(i + 1, // 选择下一位
                             mask | 1 << k,  // 标记当前为已经选择
