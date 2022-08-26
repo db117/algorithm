@@ -1,31 +1,68 @@
-package cn.db117.template.dp;
 
-import cn.db117.leetcode.solution10.Solution_1012;
-import cn.db117.leetcode.solution2.Solution_233;
-import cn.db117.leetcode.solution23.Solution_2376;
-import cn.db117.leetcode.solution6.Solution_600;
-import cn.db117.leetcode.solution9.Solution_902;
+
+//给定正整数 n，返回在 [1, n] 范围内具有 至少 1 位 重复数字的正整数的个数。 
+//
+// 
+//
+// 示例 1： 
+//
+// 
+//输入：n = 20
+//输出：1
+//解释：具有至少 1 位重复数字的正数（<= 20）只有 11 。
+// 
+//
+// 示例 2： 
+//
+// 
+//输入：n = 100
+//输出：10
+//解释：具有至少 1 位重复数字的正数（<= 100）有 11，22，33，44，55，66，77，88，99 和 100 。
+// 
+//
+// 示例 3： 
+//
+// 
+//输入：n = 1000
+//输出：262
+// 
+//
+// 
+//
+// 提示： 
+//
+// 
+// 1 <= n <= 10⁹ 
+// 
+//
+// Related Topics 数学 动态规划 👍 120 👎 0
+
+
+package cn.db117.leetcode.solution10;
 
 import java.util.Arrays;
 
 /**
- * 数位 DP
+ * 1012.至少有 1 位重复的数字.numbers-with-repeated-digits
  *
  * @author db117
- * @see Solution_233
- * @see Solution_600
- * @see Solution_902
- * @see Solution_1012
- * @see Solution_2376
- * @since 2022/8/25 16:55
+ * @see cn.db117.template.dp.NumberBitDP
+ * @since 2022-08-26 15:31:55
  **/
-public class NumberBitDP {
+
+public class Solution_1012 {
+    public static void main(String[] args) {
+        Solution solution = new Solution_1012().new Solution();
+    }
+
+    //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         char[] chars;
         int[][] dp;
 
-        public int countSpecialNumbers(int n) {
+        public int numDupDigitsAtMostN(int n) {
             // 数位 DP
+            // 换算成 n - 数字不重复的数量
             chars = Integer.toString(n).toCharArray();
             dp = new int[chars.length][1 << 10];
             for (int[] ints : dp) {
@@ -33,7 +70,7 @@ public class NumberBitDP {
             }
             // 初始
             // 第一个数字开始,没有选择数字,有最大数字限制,当前还没有选数字
-            return f(0, 0, true, false);
+            return n - f(0, 0, true, false);
         }
 
         /**
@@ -90,4 +127,6 @@ public class NumberBitDP {
             return ans;
         }
     }
+//leetcode submit region end(Prohibit modification and deletion)
+
 }
