@@ -1,9 +1,12 @@
 package cn.db117.template;
 
+import cn.db117.leetcode.solution3.Solution_323;
+
 /**
  * 并查集
  *
  * @author db117
+ * @see Solution_323
  * @since 2022/8/30 16:13
  **/
 public class UnionFind {
