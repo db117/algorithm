@@ -1,5 +1,8 @@
 package cn.db117.leetcode.solution2;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 207. 课程表
  * 现在你总共有 n 门课需要选，记为 0 到 n-1。
@@ -34,9 +37,70 @@ package cn.db117.leetcode.solution2;
  *
  * @author db117
  * @date 2019/9/11/011 17:42
+ * @see cn.db117.template.TopologicalSort
  */
 public class Solution207 {
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
-        return true;
+    class Solution {
+        public boolean canFinish(int numCourses, int[][] prerequisites) {
+            return findOrder(numCourses, prerequisites).length == numCourses;
+        }
+
+        public int[] findOrder(int numCourses, int[][] prerequisites) {
+            // 标准拓扑排序
+            // 入度
+            int[] in = new int[numCourses];
+            // 邻接表
+            Queue<Integer>[] graph = new Queue[numCourses];
+
+            // 构建图
+            for (int[] prerequisite : prerequisites) {
+                int form = prerequisite[1];
+                int to = prerequisite[0];
+
+                in[to]++;
+
+                if (graph[form] == null) {
+                    graph[form] = new LinkedList<>();
+                }
+                graph[form].offer(to);
+            }
+
+            // 0 入度
+            Queue<Integer> zeroIn = new LinkedList<>();
+            for (int i = 0; i < numCourses; i++) {
+                if (in[i] == 0) {
+                    zeroIn.offer(i);
+                }
+            }
+            // 记录访问节点
+            int index = 0;
+            int[] ans = new int[numCourses];
+
+
+            while (!zeroIn.isEmpty()) {
+                Integer from = zeroIn.poll();
+                // 记录访问节点
+                ans[index++] = from;
+
+                Queue<Integer> queue = graph[from];
+                if (queue == null) {
+                    continue;
+                }
+                // 下一个节点入度全部减一
+                while (!queue.isEmpty()) {
+                    Integer to = queue.poll();
+                    in[to]--;
+                    if (in[to] == 0) {
+                        // 下一个节点入度为 0 入队
+                        zeroIn.offer(to);
+                    }
+                }
+            }
+
+            if (index != numCourses) {
+                return new int[0];
+            }
+            return ans;
+        }
     }
 }
