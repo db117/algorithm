@@ -30,6 +30,7 @@ import java.util.Arrays;
  *
  * @author db117
  * @date 2019/9/23/023 16:46
+ * @see cn.db117.template.UnionFind
  */
 public class Solution130 {
     int row, col;
