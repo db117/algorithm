@@ -3,6 +3,7 @@ package cn.db117.template;
 import cn.db117.leetcode.solution2.Solution207;
 import cn.db117.leetcode.solution2.Solution_210;
 import cn.db117.leetcode.solution2.Solution_269;
+import cn.db117.leetcode.solution23.Solution_2392;
 import cn.db117.leetcode.util.Pair;
 
 import java.util.*;
@@ -14,6 +15,7 @@ import java.util.*;
  * @see Solution207
  * @see Solution_210
  * @see Solution_269
+ * @see Solution_2392
  * @since 2022/8/29 18:15
  **/
 public class TopologicalSort {
@@ -26,8 +28,8 @@ public class TopologicalSort {
 
         // 构建图
         for (int[] prerequisite : prerequisites) {
-            int form = prerequisite[1];
-            int to = prerequisite[0];
+            int form = prerequisite[0];
+            int to = prerequisite[1];
 
             in[to]++;
 
@@ -67,6 +69,10 @@ public class TopologicalSort {
                     zeroIn.offer(to);
                 }
             }
+        }
+        if (index != numCourses) {
+            // 有环
+            return new int[0];
         }
         return ans;
     }
