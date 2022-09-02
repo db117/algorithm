@@ -1,10 +1,13 @@
 package cn.db117.template;
 
+import cn.db117.leetcode.solution23.Solution_2389;
+
 /**
  * 二分搜索
  *
  * @author db117
  * @date 2020/9/20/020 14:26
+ * @see Solution_2389
  **/
 public class BinarySearch {
     public static void main(String[] args) {
