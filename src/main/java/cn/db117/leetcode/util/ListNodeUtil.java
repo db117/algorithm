@@ -1,5 +1,7 @@
 package cn.db117.leetcode.util;
 
+import java.util.Arrays;
+
 /**
  * @author db117
  * @date 2019/7/10
@@ -23,6 +25,20 @@ public class ListNodeUtil {
             last = last.next;
         }
         return head;
+    }
+
+    /**
+     * 构建
+     *
+     * @param args arg
+     */
+    public static ListNode builder(String args) {
+        int[] ints = Arrays.stream(args.replace("[", "")
+                        .replace("]", "")
+                        .split(",")).map(Integer::parseInt)
+                .mapToInt(v -> v)
+                .toArray();
+        return builder(ints);
     }
 
     /**

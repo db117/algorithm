@@ -16,6 +16,24 @@ public class TreeNodeUtil {
     /**
      * 构建二叉树
      *
+     * @param args 数组
+     */
+    public static TreeNode build(String args) {
+        String[] split = args.replace("[", "")
+                .replace("]", "")
+                .split(",");
+        Integer[] integers = new Integer[split.length];
+        for (int i = 0; i < split.length; i++) {
+            if (split[i] != null) {
+                integers[i] = Integer.parseInt(split[i]);
+            }
+        }
+        return TreeNodeUtil.build(integers);
+    }
+
+    /**
+     * 构建二叉树
+     *
      * @param data 数组
      */
     public static TreeNode build(Integer[] data) {
