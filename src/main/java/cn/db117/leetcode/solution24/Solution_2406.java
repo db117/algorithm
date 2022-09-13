@@ -52,6 +52,7 @@ import java.util.TreeMap;
  * 2406.将区间分为最少组数.divide-intervals-into-minimum-number-of-groups
  *
  * @author db117
+ * @see cn.db117.template.DiffArray
  * @since 2022-09-13 17:41:54
  **/
 

@@ -1,5 +1,7 @@
 package cn.db117.template;
 
+import cn.db117.leetcode.solution2.Solution_253;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,6 +11,8 @@ import java.util.TreeMap;
  * 可以理解为公交车上下车,车上最多多少人的问题
  *
  * @author db117
+ * @see cn.db117.leetcode.solution24.Solution_2406
+ * @see Solution_253
  * @since 2022/9/13 18:06
  **/
 public class DiffArray {
