@@ -46,13 +46,15 @@
 // Related Topics 设计 线段树 二分查找 有序集合 👍 231 👎 0
 
 
-package cn.db117.leetcode.solution24;
+package cn.db117.leetcode.solution7;
+
+import cn.db117.template.segment_tree.SegmentTreeRangeAdd;
 
 /**
  * 729.我的日程安排表 I.my-calendar-i
  *
  * @author db117
- * @see cn.db117.template.segment_tree.SegmentTreeRange
+ * @see SegmentTreeRangeAdd
  * @since 2022-09-20 15:40:29
  **/
 
@@ -106,9 +108,7 @@ public class Solution_729 {
             // 当前节点左右 范围
             int l, r;
             /**
-             * 保存的值
-             * 要求操作满足区间可加性
-             * 例如 + * | & ^ min max gcd mulMatrix 摩尔投票 最大子段和 ...
+             * 区间和
              */
             int sum;
             /**
@@ -158,13 +158,17 @@ public class Solution_729 {
             }
 
             // 把子节点的数据修改,并标记懒更新
+            // 需要根据题意修改,区间每一个位置都增加(需要乘以子节点数量)
+            // 最大值(不需要)
             SegNode left = node.getLeft();
             SegNode right = node.getRight();
-            left.lazy = add;
-            left.sum += (left.r - left.l + 1) * add;
+            left.lazy += add;
+            left.sum += add;
+            //        left.sum += (left.r - left.l + 1) * add;
 
-            right.lazy = add;
-            right.sum += (right.r - right.l + 1) * add;
+            right.lazy += add;
+            right.sum += add;
+            //        right.sum += (right.r - right.l + 1) * add;
 
             // 清除标记
             node.lazy = 0;
@@ -179,7 +183,9 @@ public class Solution_729 {
         public void update(SegNode node, int l, int r, int val) {
             if (l <= node.l && node.r <= r) {
                 // 懒更新
-                node.sum = (node.r - node.l + 1) * val;
+                // 需要根据题意修改,区间每一个位置都增加(需要乘以子节点数量)
+                // 最大值(不需要)
+                node.sum += val;
                 node.lazy = val;
                 return;
             }
@@ -210,6 +216,7 @@ public class Solution_729 {
 
         public int query(SegNode node, int ql, int qr) {
             if (node.r < ql || node.l > qr) {
+                // 不在区间内
                 return 0;
             }
             if (ql <= node.l && node.r <= qr) {

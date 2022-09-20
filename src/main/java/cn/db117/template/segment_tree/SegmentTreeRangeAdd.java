@@ -1,25 +1,20 @@
 package cn.db117.template.segment_tree;
 
-import cn.db117.leetcode.solution24.Solution_729;
-
 /**
  * 线段树
  * 区间修改,区间查询
  * 动态开点,懒更新
  *
  * @author db117
- * @see Solution_729
  * @since 2022/9/16 11:45
  **/
-public class SegmentTreeRange {
+public class SegmentTreeRangeAdd {
 
     class SegNode {
         // 当前节点左右 范围
         int l, r;
         /**
-         * 保存的值
-         * 要求操作满足区间可加性
-         * 例如 + * | & ^ min max gcd mulMatrix 摩尔投票 最大子段和 ...
+         * 区间和
          */
         int sum;
         /**
@@ -69,12 +64,13 @@ public class SegmentTreeRange {
         }
 
         // 把子节点的数据修改,并标记懒更新
+        // 区间每一个位置都增加(需要乘以子节点数量)
         SegNode left = node.getLeft();
         SegNode right = node.getRight();
-        left.lazy = add;
+        left.lazy += add;
         left.sum += (left.r - left.l + 1) * add;
 
-        right.lazy = add;
+        right.lazy += add;
         right.sum += (right.r - right.l + 1) * add;
 
         // 清除标记
@@ -90,8 +86,10 @@ public class SegmentTreeRange {
     public void update(SegNode node, int l, int r, int val) {
         if (l <= node.l && node.r <= r) {
             // 懒更新
-            node.sum = (node.r - node.l + 1) * val;
-            node.lazy = val;
+            // 需要根据题意修改,区间每一个位置都增加(需要乘以子节点数量)
+            // 最大值(不需要)
+            node.sum += (node.r - node.l + 1) * val;
+            node.lazy += val;
             return;
         }
 
