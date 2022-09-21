@@ -8,7 +8,7 @@ package cn.db117.template.segment_tree;
  * @author db117
  * @since 2022/9/16 11:45
  **/
-public class SegmentTreeRangeAdd {
+public class SegmentTreeRangeSum {
 
     class SegNode {
         // 当前节点左右 范围

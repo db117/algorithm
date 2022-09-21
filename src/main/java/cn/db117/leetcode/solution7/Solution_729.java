@@ -48,13 +48,13 @@
 
 package cn.db117.leetcode.solution7;
 
-import cn.db117.template.segment_tree.SegmentTreeRangeAdd;
+import cn.db117.template.segment_tree.SegmentTreeRangeSum;
 
 /**
  * 729.我的日程安排表 I.my-calendar-i
  *
  * @author db117
- * @see SegmentTreeRangeAdd
+ * @see SegmentTreeRangeSum
  * @since 2022-09-20 15:40:29
  **/
 

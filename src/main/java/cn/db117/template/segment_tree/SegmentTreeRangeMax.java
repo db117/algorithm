@@ -1,7 +1,9 @@
 package cn.db117.template.segment_tree;
 
+
 import cn.db117.leetcode.solution7.Solution_729;
 import cn.db117.leetcode.solution7.Solution_731;
+import cn.db117.leetcode.solution7.Solution_732;
 
 /**
  * 线段树
@@ -10,6 +12,7 @@ import cn.db117.leetcode.solution7.Solution_731;
  *
  * @author db117
  * @see Solution_731
+ * @see Solution_732
  * @see Solution_729
  * @since 2022/9/16 11:45
  **/
