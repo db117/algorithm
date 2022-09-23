@@ -1,9 +1,16 @@
 package cn.db117.template;
 
+
 /**
  * 字典树
  *
  * @author db117
+ * @see cn.db117.leetcode.solution2.Solution208
+ * @see cn.db117.leetcode.solution2.Solution_211
+ * @see cn.db117.leetcode.solution6.Solution_648
+ * @see cn.db117.leetcode.solution6.Solution_676
+ * @see cn.db117.leetcode.solution6.Solution_677
+ * @see cn.db117.leetcode.solution7.Solution_745
  * @see cn.db117.leetcode.solution24.Solution_2416
  * @since 2022/9/23 11:51
  **/
