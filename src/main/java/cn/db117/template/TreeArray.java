@@ -9,10 +9,8 @@ package cn.db117.template;
 public class TreeArray {
     // 下标从 1 开始
     int[] tree;
-    int[] nums;
 
     public TreeArray(int[] nums) {
-        this.nums = nums;
         tree = new int[nums.length + 10];
         for (int i = 0; i < nums.length; i++) {
             add(i + 1, nums[i]);
@@ -33,7 +31,7 @@ public class TreeArray {
      * @param v 增加的值
      */
     public void add(int x, int v) {
-        for (int i = x; i <= nums.length; i += lowBit(i)) {
+        for (int i = x; i < tree.length; i += lowBit(i)) {
             tree[i] += v;
         }
     }
