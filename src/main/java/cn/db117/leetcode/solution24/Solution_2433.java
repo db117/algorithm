@@ -59,34 +59,12 @@ public class Solution_2433 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        int mod = (int) (1e9 + 7);
-
-        public int numberOfPaths(int[][] grid, int k) {
-            int m = grid.length;
-            int n = grid[0].length;
-            // 第三维为对 k 取模后的值
-            int[][][] dp = new int[m][n][k];
-
-            // 初始化
-            dp[0][0][grid[0][0] % k] = 1;
-
-            for (int i = 0; i < m; i++) {
-                for (int j = 0; j < n; j++) {
-                    for (int l = 0; l < k; l++) {
-                        // 能过来的索引位置
-                        int pre = (k + l - grid[i][j] % k) % k;
-                        if (i > 0) {
-                            dp[i][j][l] += dp[i - 1][j][pre];
-                            dp[i][j][l] %= mod;
-                        }
-                        if (j > 0) {
-                            dp[i][j][l] += dp[i][j - 1][pre];
-                            dp[i][j][l] %= mod;
-                        }
-                    }
-                }
+        public int[] findArray(int[] pref) {
+            int[] arr = pref.clone();
+            for (int i = 1; i < pref.length; i++) {
+                arr[i] ^= pref[i - 1];
             }
-            return dp[m - 1][n - 1][0];
+            return arr;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
