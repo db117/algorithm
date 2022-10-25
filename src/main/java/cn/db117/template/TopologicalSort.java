@@ -3,7 +3,6 @@ package cn.db117.template;
 import cn.db117.leetcode.solution2.Solution207;
 import cn.db117.leetcode.solution2.Solution_210;
 import cn.db117.leetcode.solution2.Solution_269;
-import cn.db117.leetcode.solution23.Solution_2392;
 import cn.db117.leetcode.util.Pair;
 
 import java.util.*;
