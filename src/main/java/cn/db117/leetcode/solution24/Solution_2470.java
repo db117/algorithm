@@ -54,7 +54,7 @@ public class Solution_2470 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        private static int gcd(int a, int b) {
+        private int gcd(int a, int b) {
             int t;
             while (b != 0) {
                 t = b;

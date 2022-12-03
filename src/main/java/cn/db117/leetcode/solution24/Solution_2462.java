@@ -80,7 +80,7 @@ public class Solution_2462 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        private static int compare(Pair<Integer, Integer> o1, Pair<Integer, Integer> o2) {
+        private int compare(Pair<Integer, Integer> o1, Pair<Integer, Integer> o2) {
             if (o1.getKey().equals(o2.getKey())) {
                 return o1.getValue() - o2.getValue();
             }
@@ -90,8 +90,8 @@ public class Solution_2462 {
         public long totalCost(int[] costs, int k, int candidates) {
             long ans = 0;
             // 两个堆模拟
-            PriorityQueue<Pair<Integer, Integer>> leftQ = new PriorityQueue<>(candidates, Solution::compare),
-                    rightQ = new PriorityQueue<>(candidates, Solution::compare);
+            PriorityQueue<Pair<Integer, Integer>> leftQ = new PriorityQueue<>(candidates, this::compare),
+                    rightQ = new PriorityQueue<>(candidates, this::compare);
             int left = 0, right = costs.length - 1;
 
             while (left < candidates && left < costs.length) {
