@@ -24,7 +24,7 @@ public class TreeNodeUtil {
                 .split(",");
         Integer[] integers = new Integer[split.length];
         for (int i = 0; i < split.length; i++) {
-            if (split[i] != null) {
+            if (split[i] != null && !split[i].equals("null")) {
                 integers[i] = Integer.parseInt(split[i]);
             }
         }
