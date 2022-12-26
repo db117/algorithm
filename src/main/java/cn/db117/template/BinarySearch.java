@@ -12,10 +12,10 @@ import cn.db117.leetcode.solution23.Solution_2389;
 public class BinarySearch {
     public static void main(String[] args) {
         BinarySearch search = new BinarySearch();
-        System.out.println(search.bsLeftMax(new int[]{
+        System.out.println(search.bsLeft1(new int[]{
                         1, 2, 3, 4, 5, 9, 9, 9, 9, 9, 11, 15
                 },
-                11));
+                9));
         System.out.println(search.bsLeftMax(new int[]{
                         9, 9, 9, 9, 9
                 },
@@ -73,6 +73,9 @@ public class BinarySearch {
         return left;
     }
 
+    /**
+     * 大于等于目标值的最左边
+     */
     public int bsLeft1(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
@@ -119,6 +122,9 @@ public class BinarySearch {
         return right;
     }
 
+    /**
+     * 小于等于目标值 最右边
+     */
     public int bsRight1(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
