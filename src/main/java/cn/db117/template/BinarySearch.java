@@ -12,11 +12,11 @@ import cn.db117.leetcode.solution23.Solution_2389;
 public class BinarySearch {
     public static void main(String[] args) {
         BinarySearch search = new BinarySearch();
-        System.out.println(search.bsLeft1(new int[]{
+        System.out.println(search.bsGreaterEqualMin(new int[]{
                         1, 2, 3, 4, 5, 9, 9, 9, 9, 9, 11, 15
                 },
                 9));
-        System.out.println(search.bsLeftMax(new int[]{
+        System.out.println(search.bsLessMax(new int[]{
                         9, 9, 9, 9, 9
                 },
                 8));
@@ -74,29 +74,6 @@ public class BinarySearch {
     }
 
     /**
-     * 大于等于目标值的最左边
-     */
-    public int bsLeft1(int[] nums, int target) {
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            // 左边中位数
-            int mid = left + ((right - left) >> 1);
-            if (nums[mid] < target) {
-                // 移动左边界
-                // 上面选择左边中位数,所有加一
-                left = mid + 1;
-            } else {
-                // 大于等于则保持右边界
-                // 等于则继续往左边查找
-                right = mid;
-            }
-        }
-
-        // 需要判断是否找到
-        return nums[right] == target ? right : -1;
-    }
-
-    /**
      * 查找最右边的索引,找不到返回-1
      */
     public int bsRight(int[] nums, int target) {
@@ -123,9 +100,9 @@ public class BinarySearch {
     }
 
     /**
-     * 小于等于目标值 最右边
+     * 小于等于目标值的最大值
      */
-    public int bsRight1(int[] nums, int target) {
+    public int bsLessEqualMax(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             // 选右边中位数
@@ -142,13 +119,13 @@ public class BinarySearch {
         }
 
         // 需要判断是否找到
-        return nums[right] == target ? right : -1;
+        return nums[right] <= target ? right : -1;
     }
 
     /**
      * 找小于目标的最大值
      */
-    public int bsLeftMax(int[] nums, int target) {
+    public int bsLessMax(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             // 选右边中位数
@@ -169,7 +146,7 @@ public class BinarySearch {
     /**
      * 找大于目标的最小值
      */
-    public int bsRightMin(int[] nums, int target) {
+    public int bsGreaterMin(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             // 选右边中位数
@@ -184,5 +161,28 @@ public class BinarySearch {
         }
         // 防止所有数据都小于目标值
         return nums[right] > target ? right : -1;
+    }
+
+    /**
+     * 大于等于目标值的最小值
+     */
+    public int bsGreaterEqualMin(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            // 左边中位数
+            int mid = left + ((right - left) >> 1);
+            if (nums[mid] < target) {
+                // 移动左边界
+                // 上面选择左边中位数,所有加一
+                left = mid + 1;
+            } else {
+                // 大于等于则保持右边界
+                // 等于则继续往左边查找
+                right = mid;
+            }
+        }
+
+        // 需要判断是否找到
+        return nums[right] >= target ? right : -1;
     }
 }
