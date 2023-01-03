@@ -1,5 +1,8 @@
 package cn.db117.template;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 质数
  *
@@ -56,4 +59,18 @@ public class Prime {
         primes[pi++] = mix + 1;
     }
 
+
+    /**
+     * 是质数
+     */
+    private boolean isPrime(int n) {
+        // 枚举，直到一半开根号
+        int size = (int) Math.sqrt(n);
+        for (int i = 2; i <= size; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
