@@ -81,7 +81,7 @@ public class Solution_681 {
                 int curM = i % 60;
                 // 当前时刻可以凑出来
                 if (map[curH / 10] > 0 && map[curH % 10] > 0 && map[curM / 10] > 0 && map[curM % 10] > 0) {
-                    return "%d%d:%d%d".formatted(curH / 10, curH % 10, curM / 10, curM % 10);
+                    return String.format("%d%d:%d%d", curH / 10, curH % 10, curM / 10, curM % 10);
                 }
             }
             return time;
