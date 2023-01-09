@@ -58,6 +58,8 @@
 
 package cn.db117.leetcode.solution24;
 
+import cn.db117.template.trie.Trie;
+
 import java.util.Arrays;
 
 /**
@@ -65,7 +67,7 @@ import java.util.Arrays;
  *
  * @author db117
  * @see cn.db117.leetcode.solution2.Solution208
- * @see cn.db117.template.Trie
+ * @see Trie
  * @since 2022-09-23 11:20:42
  **/
 

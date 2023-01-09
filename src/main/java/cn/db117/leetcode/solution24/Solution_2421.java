@@ -69,6 +69,8 @@
 
 package cn.db117.leetcode.solution24;
 
+import cn.db117.template.trie.Trie;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -79,7 +81,7 @@ import java.util.stream.IntStream;
  * 2421.好路径的数目.number-of-good-paths
  *
  * @author db117
- * @see cn.db117.template.Trie
+ * @see Trie
  * @since 2022-09-27 17:38:37
  **/
 

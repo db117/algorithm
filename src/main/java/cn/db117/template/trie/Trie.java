@@ -1,4 +1,4 @@
-package cn.db117.template;
+package cn.db117.template.trie;
 
 
 /**

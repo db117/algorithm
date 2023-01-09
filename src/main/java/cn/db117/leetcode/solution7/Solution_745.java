@@ -43,6 +43,8 @@
 
 package cn.db117.leetcode.solution7;
 
+import cn.db117.template.trie.Trie;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +52,7 @@ import java.util.List;
  * 745.前缀和后缀搜索.prefix-and-suffix-search
  *
  * @author db117
- * @see cn.db117.template.Trie
+ * @see Trie
  * @since 2022-09-23 15:24:57
  **/
 

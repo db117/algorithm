@@ -19,7 +19,8 @@
  * <p>
  * 拓扑排序 {@link cn.db117.template.TopologicalSort}
  * <p>
- * 字典树 {@link  cn.db117.template.Trie}
+ * 字典树 {@link  cn.db117.template.trie.Trie}
+ * 01字典树{@link cn.db117.template.trie.Trie01Low}
  * <p>
  * 并查集 {@link  cn.db117.template.UnionFind}
  * <p>
