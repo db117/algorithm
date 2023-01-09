@@ -10,6 +10,7 @@ import cn.db117.leetcode.solution3.Solution_322;
  * 第 i 件物品的体积是 v[i] ，价值是 w[i]。
  *
  * @see Solution_322
+ * @see cn.db117.leetcode.solution5.Solution_518
  */
 public class Full {
 
