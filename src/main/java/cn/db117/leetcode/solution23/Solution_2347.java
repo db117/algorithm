@@ -70,6 +70,8 @@ public class Solution_2347 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        private final static String[] strings = new String[]{"High Card", "Pair", "Three of a Kind", "Flush"};
+
         public String bestHand(int[] ranks, char[] suits) {
             int tmp = 0;
             for (int i = 1; i < suits.length; i++) {
@@ -81,19 +83,20 @@ public class Solution_2347 {
                 return "Flush";
             }
 
+            int ans = 0;
             int[] arr = new int[15];
             for (int rank : ranks) {
                 arr[rank]++;
             }
             for (int i : arr) {
                 if (i >= 3) {
-                    return "Three of a Kind";
+                    ans = 2;
                 }
                 if (i == 2) {
-                    return "Pair";
+                    ans = Math.max(ans, 1);
                 }
             }
-            return "High Card";
+            return strings[ans];
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
