@@ -64,7 +64,7 @@ public class Solution1010 {
                 map.put(n, map.getOrDefault(n, 0) + 1);
             }
 
-            int res = 0;
+            long res = 0;
             for (int i : time) {
                 // 找到能凑够60的数字个数
                 int n = 60 - (i % 60);
@@ -80,7 +80,7 @@ public class Solution1010 {
             }
 
             // 去掉相互的
-            return res / 2;
+            return (int) (res / 2);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
