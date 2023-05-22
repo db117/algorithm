@@ -70,6 +70,7 @@ public class Solution_2685 {
         public int countCompleteComponents(int n, int[][] edges) {
             UnionFind uf = new UnionFind(n);
             for (int[] edge : edges) {
+                // 并查集连接相同的点
                 uf.union(edge[0], edge[1]);
             }
             Map<Integer, Set<Integer>> edge = new HashMap<>();
@@ -81,8 +82,10 @@ public class Solution_2685 {
                 edge.get(ints[1]).add(ints[0]);
             }
 
+
             Map<Integer, List<Integer>> map = new HashMap<>();
             for (int i = 0; i < n; i++) {
+                // 并查集对不同的连通块进行统计
                 int p = uf.find(i);
                 map.putIfAbsent(p, new ArrayList<>());
                 map.get(p).add(i);
@@ -98,6 +101,7 @@ public class Solution_2685 {
                     continue;
                 }
 
+                // 对每一个点进行校验，是否和其他点有连接
                 boolean flag = true;
                 for (int i = 0; i < size; i++) {
                     for (int j = i + 1; j < size; j++) {
