@@ -80,7 +80,7 @@
 // Related Topics 数学 字符串 模拟 👍 180 👎 0
 
 
-package cn.db117.leetcode.solution26;
+package cn.db117.leetcode.solution10;
 
 /**
  * 1041.困于环中的机器人.robot-bounded-in-circle
