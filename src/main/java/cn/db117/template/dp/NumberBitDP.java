@@ -24,18 +24,18 @@ import java.util.Arrays;
 public class NumberBitDP {
     class Solution {
         char[] chars;
-        int[][] dp;
+        long[][] dp;
 
         public int countSpecialNumbers(int n) {
             // 数位 DP
             chars = Integer.toString(n).toCharArray();
-            dp = new int[chars.length][1 << 10];
-            for (int[] ints : dp) {
+            dp = new long[chars.length][1 << 10];
+            for (long[] ints : dp) {
                 Arrays.fill(ints, -1);
             }
             // 初始
             // 第一个数字开始,没有选择数字,有最大数字限制,当前还没有选数字
-            return f(0, 0, true, false);
+            return (int) f(0, 0, true, false);
         }
 
         /**
@@ -49,7 +49,7 @@ public class NumberBitDP {
          * @param hasNum  前面是否已经选择了数字(处理 0000010 这种情况)
          * @return 当前可以选择的数字数量
          */
-        private int f(int i, int mask, boolean isLimit, boolean hasNum) {
+        private long f(int i, int mask, boolean isLimit, boolean hasNum) {
             if (i == chars.length) {
                 // 走完了,如果选了数字则为 1,没有选就为 0
                 return hasNum ? 1 : 0;
@@ -63,7 +63,7 @@ public class NumberBitDP {
                 return dp[i][mask];
             }
 
-            int ans = 0;
+            long ans = 0;
             if (!hasNum) {
                 // 前面没有选数字,而且当前为没有限制可以跳过当前位数
                 // 比如 000010  在 i<4 时都可以在这算上
