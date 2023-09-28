@@ -37,18 +37,18 @@ public class Solution_284 {
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
 
-    class PeekingIterator implements Iterator<Integer> {
+    class PeekingIterator<E> implements Iterator<E> {
         // 缓存一下
-        Integer cache = null;
-        Iterator<Integer> iterator;
+        E cache = null;
+        Iterator<E> iterator;
 
-        public PeekingIterator(Iterator<Integer> iterator) {
+        public PeekingIterator(Iterator<E> iterator) {
             // initialize any member here.
             this.iterator = iterator;
         }
 
         // Returns the next element in the iteration without advancing the iterator.
-        public Integer peek() {
+        public E peek() {
             if (cache == null) {
                 cache = iterator.next();
             }
@@ -58,9 +58,9 @@ public class Solution_284 {
         // hasNext() and next() should behave the same as in the Iterator interface.
         // Override them if needed.
         @Override
-        public Integer next() {
+        public E next() {
             if (cache != null) {
-                Integer temp = cache;
+                E temp = cache;
                 cache = null;
                 return temp;
             }
