@@ -1,3 +1,5 @@
+
+
 //给你一个数组 prices ，其中 prices[i] 是商店里第 i 件商品的价格。 
 //
 // 商店里正在进行促销活动，如果你要买第 i 件商品，那么你可以得到与 prices[j] 相等的折扣，其中 j 是满足 j > i 且 prices[j] 
@@ -39,42 +41,47 @@
 // 1 <= prices.length <= 500 
 // 1 <= prices[i] <= 10^3 
 // 
-// Related Topics 数组 
-// 👍 23 👎 0
+//
+// Related Topics 栈 数组 单调栈 👍 207 👎 0
 
 
 package cn.db117.leetcode.solution14;
 
-import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * 1475.商品折扣后的最终价格.final-prices-with-a-special-discount-in-a-shop
  *
  * @author db117
- * @since 2020-12-22 11:50:28
+ * @since 2023-10-08 10:44:31
  **/
 
-public class Solution1475 {
+public class Solution_1475 {
     public static void main(String[] args) {
-        Solution solution = new Solution1475().new Solution();
-        System.out.println(Arrays.toString(solution.finalPrices(new int[]{
-                1, 2, 3, 4, 5
-        })));
+        Solution solution = new Solution_1475().new Solution();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] finalPrices(int[] prices) {
-            for (int i = 0; i < prices.length; i++) {
-                for (int j = i + 1; j < prices.length; j++) {
-                    if (prices[j] <= prices[i]) {
-                        prices[i] = prices[i] - prices[j];
-                        break;
-                    }
-                }
+            int n = prices.length;
+            // 单调栈
+            int[] ans = new int[n];
+            Stack<Integer> stack = new Stack<>();
 
+            for (int i = n - 1; i >= 0; i--) {
+                // 找到第一个比当前小的
+                while (!stack.isEmpty() && prices[stack.peek()] > prices[i]) {
+                    stack.pop();
+                }
+                if (stack.isEmpty()) {
+                    ans[i] = prices[i];
+                } else {
+                    ans[i] = prices[i] - prices[stack.peek()];
+                }
+                stack.push(i);
             }
-            return prices;
+            return ans;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
