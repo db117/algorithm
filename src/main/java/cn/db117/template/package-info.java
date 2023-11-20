@@ -25,6 +25,6 @@
  * 并查集 {@link  cn.db117.template.UnionFind}
  * <p>
  * 树状数组
- * {@link cn.db117.template.TreeArray}
+ * {@link cn.db117.template.TreeArray.TreeArraySum}
  **/
 package cn.db117.template;

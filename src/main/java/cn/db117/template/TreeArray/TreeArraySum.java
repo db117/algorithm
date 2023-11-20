@@ -1,4 +1,4 @@
-package cn.db117.template;
+package cn.db117.template.TreeArray;
 
 /**
  * 树状数组
@@ -6,11 +6,15 @@ package cn.db117.template;
  * @author db117
  * @since 2022/9/29 18:18
  **/
-public class TreeArray {
+public class TreeArraySum {
     // 下标从 1 开始
     int[] tree;
 
-    public TreeArray(int[] nums) {
+    public TreeArraySum(int n) {
+        tree = new int[n + 7];
+    }
+
+    public TreeArraySum(int[] nums) {
         tree = new int[nums.length + 10];
         for (int i = 0; i < nums.length; i++) {
             add(i + 1, nums[i]);

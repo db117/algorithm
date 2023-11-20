@@ -52,11 +52,13 @@
 
 package cn.db117.leetcode.solution3;
 
+import cn.db117.template.TreeArray.TreeArraySum;
+
 /**
  * 307.区域和检索 - 数组可修改.range-sum-query-mutable
  *
  * @author db117
- * @see cn.db117.template.TreeArray
+ * @see TreeArraySum
  * @since 2022-09-29 18:57:53
  **/
 

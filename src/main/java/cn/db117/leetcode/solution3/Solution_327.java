@@ -37,13 +37,15 @@
 
 package cn.db117.leetcode.solution3;
 
+import cn.db117.template.TreeArray.TreeArraySum;
+
 import java.util.*;
 
 /**
  * 327.区间和的个数.count-of-range-sum
  *
  * @author db117
- * @see cn.db117.template.TreeArray
+ * @see TreeArraySum
  * @since 2022-09-30 14:44:01
  **/
 
