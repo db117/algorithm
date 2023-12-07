@@ -45,7 +45,7 @@ public class Solution1038 {
 
     private int helper(int sum, TreeNode root) {
         int res = sum;
-        // 先算左子树
+        // 先算右子树
         if (root.right != null) {
             res = helper(res, root.right);
         }
