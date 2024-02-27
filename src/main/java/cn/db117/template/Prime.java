@@ -1,8 +1,5 @@
 package cn.db117.template;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * 质数
  *
@@ -14,11 +11,14 @@ public class Prime {
     private final static int mix = (int) 1e6;
     private final static int[] primes = new int[78500];
 
+    // 标记是否是质数
+    // 质数=false 非质数=true
+    private final static boolean[] flag = new boolean[mix + 1];
+
     // 埃氏筛
     static {
-        // 标记是否是质数
-        boolean[] flag = new boolean[mix + 1];
         int pi = 0;
+        flag[1] = true;
         for (int i = 2; i <= mix; ++i)
             if (!flag[i]) {
                 primes[pi++] = i;
