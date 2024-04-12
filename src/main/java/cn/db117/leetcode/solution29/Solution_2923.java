@@ -46,21 +46,16 @@
 // 生成的输入满足：如果 a 队比 b 队强，b 队比 c 队强，那么 a 队比 c 队强 
 // 
 //
-// Related Topics 数组 矩阵 👍 4 👎 0
+// Related Topics 数组 矩阵 👍 31 👎 0
 
 
 package cn.db117.leetcode.solution29;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * 2923.找到冠军 I.find-champion-i
  *
  * @author db117
- * @since 2023-11-15 16:59:18
+ * @since 2024-04-12 23:00:32
  **/
 
 public class Solution_2923 {
@@ -71,24 +66,21 @@ public class Solution_2923 {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findChampion(int[][] grid) {
-            int n = grid.length;
-            int ans = 0;
-            // 输的队伍 -> 赢
-            Map<Integer, Set<Integer>> map = new HashMap<>();
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (grid[i][j] == 1) {
-                        map.computeIfAbsent(j, k -> new HashSet<>()).add(i);
-                    }
+            int max = 0;
+            int maxIndex = 0;
+            for (int i = 0; i < grid.length; i++) {
+                int[] ints = grid[i];
+                int sum = 0;
+                // 找到每一行的和
+                for (int anInt : ints) {
+                    sum += anInt;
+                }
+                if (sum > max) {
+                    max = sum;
+                    maxIndex = i;
                 }
             }
-            for (int i = 0; i < n; i++) {
-                if (!map.containsKey(i)) {
-                    return i;
-                }
-            }
-
-            return ans;
+            return maxIndex;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
