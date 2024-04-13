@@ -61,9 +61,7 @@
 
 package cn.db117.leetcode.solution29;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -83,12 +81,12 @@ public class Solution_2924 {
         public int findChampion(int n, int[][] edges) {
             int ans = -1;
             // 输的队伍 -> 赢
-            Map<Integer, Set<Integer>> map = new HashMap<>();
+            Set<Integer> lose = new HashSet<>();
             for (int[] edge : edges) {
-                map.computeIfAbsent(edge[1], k -> new HashSet<>()).add(edge[0]);
+                lose.add(edge[1]);
             }
             for (int i = 0; i < n; i++) {
-                if (!map.containsKey(i)) {
+                if (!lose.contains(i)) {
                     if (ans == -1) {
                         ans = i;
                     } else {
