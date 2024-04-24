@@ -82,12 +82,11 @@ public class Solution_2385 {
      */
     class Solution {
         public int amountOfTime(TreeNode root, int start) {
-            // 把二叉树弄成图,再用 bfs 算距离
             int ans = -1;
-            Map<Integer, List<Integer>> map = new TreeMap<>();
+            Map<Integer, List<Integer>> map = new HashMap<>();
             helper(root, null, map);
             Set<Integer> set = new HashSet<>();
-            Queue<Integer> queue = new LinkedList<>();
+            Queue<Integer> queue = new ArrayDeque<>(map.size());
             queue.add(start);
             while (!queue.isEmpty()) {
                 int size = queue.size();
