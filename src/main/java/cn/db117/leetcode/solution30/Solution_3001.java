@@ -86,40 +86,33 @@ public class Solution_3001 {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
-            if (a == e) {
-                if (c != e || (d < Math.min(b, f) || d > Math.max(b, f))) {
-                    return 1;
-                }
-                return 2;
-            }
-            if (b == f) {
-                if (d != f || (c < Math.min(a, e) || c > Math.max(a, e))) {
-                    return 1;
-                }
-                return 2;
-            }
-            if (c - d == e - f) {// 坐标相差一样就在斜线上
-                // 看车在不在对角线上
-                if (a - b == e - f) {
-                    if (a > Math.min(c, e) && a < Math.max(c, e)) {
-                        return 2;
-                    }
-                    return 1;
-                }
+            // 当车在同一行或同一列时，中间没有象的情况下可以捕获黑皇后
+            // 当象和皇后在一条斜线上时，中间没有车的情况下可以捕获黑皇后
+            if (a == e && (c != e || !in(b, f, d))) {
+                // 车和皇后在一列上,且象不在中间
                 return 1;
             }
-            if (c + d == e + f) {// 坐标和一样就在反斜线上
-                // 看车在不在对角线上
-                if (a + b == e + f) {
-                    if (a > Math.min(c, e) && a < Math.max(c, e)) {
-                        return 2;
-                    }
-                    return 1;
-                }
+            if (b == f && (d != f || !in(a, e, c))) {
+                // 车和皇后在一行上,且象不在中间
+                return 1;
+            }
+            if (c + d == e + f && (a + b != e + f || !in(c, e, a))) {
+                // 象和皇后在一条斜线上,且车不在中间
+                return 1;
+            }
+            if (c - d == e - f && (a - b != e - f || !in(c, e, a))) {
+                // 象和皇后在一条斜线上,且车不在中间
                 return 1;
             }
 
-            return 2;// 走车 中间没有象
+            // 其他情况都可以 2 步搞定
+            return 2;
+
+        }
+
+
+        private boolean in(int left, int right, int mid) {
+            return Math.min(left, right) <= mid && mid <= Math.max(left, right);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
